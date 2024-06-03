@@ -63,6 +63,6 @@ public class Libros {
     }
 
     public String toString() {
-        return "||Autor: " + autor + "||Titulo: " + titulo + "||Disponible: " + disponible + "||";
+        return "||Autor: " + autor + "||Titulo: " + titulo + "||";
     }
 }

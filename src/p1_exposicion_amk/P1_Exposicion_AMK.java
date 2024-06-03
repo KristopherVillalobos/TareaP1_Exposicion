@@ -84,13 +84,20 @@ public class P1_Exposicion_AMK {
                     Persona8.Info();
                     Persona9.Info();
                     Persona10.Info();
+                    break;
                 case 3:
-                    System.out.print("Introduce el titulo del libro a rentar: ");
-                    System.out.println("*Asegurese de escribir correctamente el nombre de el libro *");
+                    lea.nextLine();
+                    System.out.println("Introduce el titulo del libro a rentar: ");
+                    System.out.println("Asegurese de escribir correctamente el nombre del libro");
+                    String tituloRentar = lea.nextLine();
+                    biblioteca.rentarLibro(tituloRentar);
                     break;
                 case 4:
-                    System.out.print("Introduce el titulo del libro a devolver: ");
-                    System.out.println("Asegurese de escribir correctamente el nombre de el libro");
+                    lea.nextLine();
+                    System.out.println("Introduce el titulo del libro a devolver: ");
+                    System.out.println("Asegurese de escribir correctamente el nombre de el libro");
+                    String tituloDevolver = lea.nextLine();
+                    biblioteca.devolverLibro(tituloDevolver);
                     break;
                 case 5:
                     System.out.println("Gracias por su visita.");

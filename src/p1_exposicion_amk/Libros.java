@@ -9,7 +9,8 @@ package p1_exposicion_amk;
  * @author Usuario
  */
 public class Libros {
-        private String autor;
+
+    private String autor;
     private String titulo;
     boolean disponible;
 
@@ -61,8 +62,7 @@ public class Libros {
         System.out.println("El libro ha sido devuelto");
     }
 
-    @Override
     public String toString() {
-        return "Libros: autor = " + autor + ", titulo = " + titulo + ", disponible = " + disponible;
+        return "||Autor: " + autor + "||Titulo: " + titulo + "||Disponible: " + disponible + "||";
     }
 }

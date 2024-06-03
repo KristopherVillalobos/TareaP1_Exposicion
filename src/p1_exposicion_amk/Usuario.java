@@ -9,32 +9,33 @@ package p1_exposicion_amk;
  * @author Usuario
  */
 public class Usuario {
-     private String usuario;
-    private String librosPrestados;
-
-    public Usuario(String usuario) {
-        this.usuario = usuario;
-        this.librosPrestados = "";
+    private String Nombre;
+    private String librosprestados;
+    
+    public Usuario(String Nombre, String librosprestados) {
+        this.Nombre = Nombre;
+        this.librosprestados = librosprestados;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
-    public String getLibrosPrestados() {
-        return librosPrestados;
+    public String getLibrosprestados() {
+        return librosprestados;
     }
 
-    public void setLibrosPrestados(String librosPrestados) {
-        this.librosPrestados = librosPrestados;
+    public void setLibrosprestados(String librosprestados) {
+        this.librosprestados = librosprestados;
     }
 
-    public void info() {
-        System.out.println("Nombre del Usuario: " + usuario);
-        System.out.println("Libros Prestados: " + librosPrestados);
+    public void Info() {
+        System.out.println("Nombre del Usuario: " + Nombre);
+        System.out.println("Libros Prestados: " + librosprestados);
+        System.out.println("");
     }
 }

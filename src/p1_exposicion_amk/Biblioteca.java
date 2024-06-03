@@ -12,20 +12,27 @@ import java.util.List;
  * @author Usuario
  */
 class Biblioteca {
-    private List<Libros> libros;
 
-    public Biblioteca() {
-        this.libros = new ArrayList<>();
+    private Libros[] libros;
+    private int cantidadLibros;
+
+    public Biblioteca(int capacidadInicial) {
+        this.libros = new Libros[capacidadInicial];
+        this.cantidadLibros = 0;
     }
 
     public void agregarLibro(Libros libro) {
-        libros.add(libro);
+        if (cantidadLibros < libros.length) {
+            libros[cantidadLibros] = libro;
+            cantidadLibros++;
+        }
     }
 
     public void rentarLibro(String titulo) {
         for (Libros libro : libros) {
-            if (libro.getTitulo().equalsIgnoreCase(titulo) && libro.isDisponible()) {
+            if (libro != null && libro.getTitulo().equalsIgnoreCase(titulo) && libro.isDisponible()) {
                 libro.prestar();
+                System.out.println("Libro rentado: " + libro.getTitulo());
                 return;
             }
         }
@@ -34,22 +41,24 @@ class Biblioteca {
 
     public void devolverLibro(String titulo) {
         for (Libros libro : libros) {
-            if (libro.getTitulo().equalsIgnoreCase(titulo) && !libro.isDisponible()) {
-                libro.devolver();
-                return;
+            if (libro != null && libro.getTitulo().equalsIgnoreCase(titulo)) {
+                if (libro.isDisponible()) {
+                    System.out.println("El libro " + titulo + " no ha sido rentado.");
+                    return;
+                } else {
+                    libro.devolver();
+                    System.out.println("El libro " + titulo + " ha sido devuelto correctamente");
+                    return;
+                }
             }
         }
-        System.out.println("El libro no se encontro");
+        System.out.println("El libro " + titulo + " no se encuentra en la biblioteca");
     }
 
     public void mostrarCatalogo() {
-        if (libros.isEmpty()) {
-            System.out.println("El catalogo de libros esta vacio");
-        } else {
-            System.out.println("Catalogo de libros disponibles: ");
-            for (Libros libro : libros) {
-                System.out.println(libro);
-            }
+        System.out.println("Catalogo de libros disponibles: ");
+        for (int i = 0; i < cantidadLibros; i++) {
+            System.out.println(libros[i]);
         }
     }
 }
